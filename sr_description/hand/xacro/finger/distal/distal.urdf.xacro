@@ -43,47 +43,46 @@
         <origin xyz="0 0 0.012" />
         <inertia ixx="0.00000094" ixy="0.0" ixz="0.0" iyy="0.0000011" iyz="0.0" izz="0.00000053" />
       </inertial>
-        <visual>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry name="${prefix}${link_prefix}distal_visual">
-            <xacro:if value="${tip_sensor == 'pst'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_2p'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry name="${prefix}${link_prefix}distal_visual">
+          <xacro:if value="${tip_sensor == 'pst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
                   scale="0.001 0.001 0.001" />
-
-            </xacro:if>
-          </geometry>
-        </visual>
-        <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry name="${prefix}${link_prefix}distal_collision_geom">
-            <xacro:if value="${tip_sensor == 'pst'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_2p'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'bt_sp'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.dae"
                   scale="0.001 0.001 0.001" />
-            </xacro:if>
-          </geometry>
-        </collision>
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'bt_2p'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'mst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+                scale="0.001 0.001 0.001" />
+          </xacro:if>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry name="${prefix}${link_prefix}distal_collision_geom">
+          <xacro:if value="${tip_sensor == 'pst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
+                  scale="0.001 0.001 0.001" />
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'bt_sp'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.dae"
+                  scale="0.001 0.001 0.001" />
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'bt_2p'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'mst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+                scale="0.001 0.001 0.001" />
+          </xacro:if>
+        </geometry>
+      </collision>
     </link>
     <xacro:unless value="${tip_sensor == 'bt_2p'}">
       <joint name="${prefix}${joint_prefix}J1" type="revolute">
