@@ -34,13 +34,13 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://sr_mst/meshes/f_distal_XL/f_distal_mstXL.dae" scale="${scale} ${scale} ${scale}"/>
+                    <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae" scale="${scale} ${scale} ${scale}"/>
                 </geometry>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://sr_mst/meshes/f_distal_XL/f_distal_mstXL.dae" scale="${scale} ${scale} ${scale}"/>
+                    <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae" scale="${scale} ${scale} ${scale}"/>
                 </geometry>
             </collision>
         </link>
