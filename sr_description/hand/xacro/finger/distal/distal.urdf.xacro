@@ -109,6 +109,7 @@
         <child link="${prefix}${link_prefix}tip" />
         <origin xyz="0 0 0.026" rpy="0 0 0" />
       </joint>
+      <!-- For mst we add a link for every taxel in the sensor -->
       <xacro:if value="${tip_sensor == 'mst'}">
         <xacro:f_mstXL_distal prefix="${prefix}" link_prefix="${link_prefix}" parent="${prefix}${link_prefix}distal" scale="0.001" show_mesh="false"/>
       </xacro:if>
