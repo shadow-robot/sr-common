@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!--
+ Software License Agreement (BSD License)
+ Copyright © 2023, 2024 belongs to Shadow Robot Company Ltd.
+ All rights reserved.
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+   3. Neither the name of Shadow Robot Company Ltd nor the names of its contributors
+      may be used to endorse or promote products derived from this software without
+      specific prior written permission.
+ This software is provided by Shadow Robot Company Ltd "as is" and any express
+ or implied warranties, including, but not limited to, the implied warranties of
+ merchantability and fitness for a particular purpose are disclaimed. In no event
+ shall the copyright holder be liable for any direct, indirect, incidental, special,
+ exemplary, or consequential damages (including, but not limited to, procurement of
+ substitute goods or services; loss of use, data, or profits; or business interruption)
+ however caused and on any theory of liability, whether in contract, strict liability,
+ or tort (including negligence or otherwise) arising in any way out of the use of this
+ software, even if advised of the possibility of such damage.
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider">
+
+  <xacro:macro name="f_mst_distal" params="prefix:=^ link_prefix:=^ show_mesh:='true' parent scale">
+
+    <xacro:if value="${show_mesh == 'true'}">
+        <link name="${prefix}${link_prefix}_mst_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mst.dae" scale="${scale} ${scale} ${scale}"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mst.dae" scale="${scale} ${scale} ${scale}"/>
+                </geometry>
+            </collision>
+        </link>
+    </xacro:if>
+    <xacro:unless value="${show_mesh == 'true'}">
+        <link name="${prefix}${link_prefix}_mst_link"/>
+    </xacro:unless >
+
+    <joint name="${parent}_to_mst_joint" type="fixed">
+        <parent link="${parent}"/>
+        <child link="${prefix}${link_prefix}_mst_link"/>
+        <origin xyz="0.0 0.0 0.0" rpy= "0 0 0"/>
+    </joint>
+
+    <!-- Note that all the following transforms were obtained using the script `get_taxel_tfs_from_meshes,py`
+        Using the material available in the folders `meshes/f_distal` and `meshes/mst_distal_isolated_magnets -->
+    <link name="${prefix}${link_prefix}_taxel_0"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_0" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_0"/>
+        <origin xyz="${-8.22369229 * scale} ${0.84174718 * scale} ${20.3442993 * scale}" rpy= "-1.51862592 1.13933997e-04 1.48712643"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_1"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_1" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_1"/>
+        <origin xyz="${-5.75946224 * scale} ${-5.74478036 * scale} ${18.26051107 * scale}" rpy= "-1.58159180 -6.71731790e-05 2.42690513"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_2"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_2" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_2"/>
+        <origin xyz="${-5.91417873 * scale} ${-5.05409658 * scale} ${12.45321528 * scale}" rpy= "-1.66280129 -0.00608772 2.53902695"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_3"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_3" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_3"/>
+        <origin xyz="${-8.43282687 * scale} ${0.96216651 * scale} ${14.59734701 * scale}" rpy= "-1.54753275 3.24240971e-05 1.45149574"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_4"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_4" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_4"/>
+        <origin xyz="${-7.68203635 * scale} ${0.79578526 * scale} ${26.17632124 * scale}" rpy= "-1.28919069 5.30530704e-04 1.55692896"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_5"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_5" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_5"/>
+        <origin xyz="${5.28688373 * scale} ${-4.7369722 * scale} ${24.58590617 * scale}" rpy= "-1.22082488 0.07610618 -2.50029183"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_6"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_6" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_6"/>
+        <origin xyz="${7.69449197 * scale} ${0.89903445 * scale} ${26.12600604 * scale}" rpy= "-1.29276648 -5.26946556e-04 -1.55667717"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_7"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_7" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_7"/>
+        <origin xyz="${5.91165379 * scale} ${-5.61714876 * scale} ${18.49465235 * scale}" rpy= "-1.58492524 1.13661172e-04 -2.42121505"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_8"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_8" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_8"/>
+        <origin xyz="${0.06615032 * scale} ${-6.97387709 * scale} ${14.19480607 * scale}" rpy= "-1.67282547  0.00461393 -3.13249173"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_9"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_9" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_9"/>
+        <origin xyz="${-5.21115165 * scale} ${-4.91576955 * scale} ${24.30155729 * scale}" rpy= "-1.2222802 -0.07513634 2.49780854"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_10"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_10" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_10"/>
+        <origin xyz="${8.45986565 * scale} ${0.861049 * scale} ${14.10763345 * scale}" rpy= "-1.54518020 -3.92924667e-05 -1.45153757"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_11"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_11" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_11"/>
+        <origin xyz="${3.52164954 * scale} ${0.27197527 * scale} ${31.00432791 * scale}" rpy= "-0.46373384 0.09408412 -1.76080055"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_12"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_12" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_12"/>
+        <origin xyz="${0.17250826 * scale}  ${-4.23989717 * scale} ${28.40559919 * scale}" rpy= "-0.93063656 -0.00320981 -3.10503702"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_13"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_13" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_13"/>
+        <origin xyz="${-3.39317188 * scale} ${0.23408706 * scale} ${31.05830392 * scale}" rpy= "0.41240032  0.23752961 -1.68863204"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_14"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_14" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_14"/>
+        <origin xyz="${5.9497192 * scale} ${-4.99959925 * scale} ${12.14818119 * scale}" rpy= "-1.65696888  0.00512781 -2.51910844"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_15"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_15" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_15"/>
+        <origin xyz="${8.20404914 * scale} ${0.95723053 * scale} ${20.61497581 * scale}" rpy= "-1.52151750 -1.01807273e-04 -1.48702812"/>
+    </joint>
+
+    <link name="${prefix}${link_prefix}_taxel_16"/>
+    <joint name="${prefix}${link_prefix}_mst_to_taxel_16" type="fixed">
+        <parent link="${prefix}${link_prefix}_mst_link"/>
+        <child link="${prefix}${link_prefix}_taxel_16"/>
+        <origin xyz="${0.12306373 * scale} ${-6.9757752 * scale} ${22.23037729 * scale}" rpy= "-1.37224849 0.00649497 -3.11547381"/>
+    </joint>
+  </xacro:macro>
+</robot>

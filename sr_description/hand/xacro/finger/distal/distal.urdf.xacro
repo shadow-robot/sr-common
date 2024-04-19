@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
  Software License Agreement (BSD License)
- Copyright © 2022 belongs to Shadow Robot Company Ltd.
+ Copyright © 2022-2024 belongs to Shadow Robot Company Ltd.
  All rights reserved.
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
@@ -34,6 +34,7 @@
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/f_distal_mstXL.urdf.xacro" />
 
   <xacro:macro name="distal" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|pst parent">
     <link name="${prefix}${link_prefix}distal">
@@ -56,6 +57,10 @@
           <xacro:if value="${tip_sensor == 'bt_2p'}">
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
           </xacro:if>
+          <xacro:if value="${tip_sensor == 'mst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+                scale="0.001 0.001 0.001" />
+          </xacro:if>
         </geometry>
       </visual>
       <collision>
@@ -71,6 +76,10 @@
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_2p'}">
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
+          </xacro:if>
+          <xacro:if value="${tip_sensor == 'mst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/mst/f_distal_mstXL.dae"
+                scale="0.001 0.001 0.001" />
           </xacro:if>
         </geometry>
       </collision>
@@ -100,6 +109,10 @@
         <child link="${prefix}${link_prefix}tip" />
         <origin xyz="0 0 0.026" rpy="0 0 0" />
       </joint>
+      <!-- For mst we add a link for every taxel in the sensor -->
+      <xacro:if value="${tip_sensor == 'mst'}">
+        <xacro:f_mstXL_distal prefix="${prefix}" link_prefix="${link_prefix}" parent="${prefix}${link_prefix}distal" scale="0.001" show_mesh="false"/>
+      </xacro:if>
     </xacro:unless>
     <!-- extensions -->
     <xacro:distal_gazebo />
