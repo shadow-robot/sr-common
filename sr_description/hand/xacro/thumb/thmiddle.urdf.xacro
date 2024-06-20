@@ -93,13 +93,7 @@
     <joint name="${prefix}THJ2" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}thmiddle" />
-      <xacro:if value="${mid_sensor == 'bt_2p'}">
-        <origin xyz="0 0 0.01" rpy="0 0 0" />
-        <!-- FIXME: z offset is too large -->
-      </xacro:if>
-      <xacro:unless value="${mid_sensor == 'bt_2p'}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:unless>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <axis xyz="1 0 0" />
       <limit lower="${-40/180*pi}" upper="${40/180*pi}" effort="2.0" velocity="2.0" />
       <dynamics damping="0.1" />
