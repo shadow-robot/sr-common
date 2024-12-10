@@ -36,7 +36,7 @@
   </asset>
   <library_images/>
   <library_effects>
-  <effect id="black_spec-fx" name="black_spec-fx">
+    <effect id="black_spec-fx" name="black_spec-fx">
       <profile_COMMON>
         <technique sid="blender">
           <phong>
