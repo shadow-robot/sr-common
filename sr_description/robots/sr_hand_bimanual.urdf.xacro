@@ -36,7 +36,7 @@
   <xacro:arg name="arm_x_separation" default="-0.4"/>
 
   <xacro:arg name="right_hand_type" default="hand_e"/>
-  <xacro:arg name="right_hand_version" default="E3M5"/>
+  <xacro:arg name="right_hand_version" default="E4"/>
   <xacro:arg name="right_fingers" default="all"/>
   <xacro:arg name="right_tip_sensors" default="pst"/>
   <xacro:arg name="right_mid_sensors" default="none"/>
@@ -45,7 +45,7 @@
   <xacro:arg name="right_mounting_plate" default="false"/>
 
   <xacro:arg name="left_hand_type" default="hand_e"/>
-  <xacro:arg name="left_hand_version" default="E3M5"/>
+  <xacro:arg name="left_hand_version" default="E4"/>
   <xacro:arg name="left_fingers" default="all"/>
   <xacro:arg name="left_tip_sensors" default="pst"/>
   <xacro:arg name="left_mid_sensors" default="none"/>
