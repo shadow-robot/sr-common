@@ -75,7 +75,7 @@
   <library_images/>
   <library_materials>
     <material id="black_spec" name="black_spec">
-        <instance_effect url="#black_spec-fx"/>
+      <instance_effect url="#black_spec-fx"/>
     </material>
   </library_materials>
   <library_geometries>

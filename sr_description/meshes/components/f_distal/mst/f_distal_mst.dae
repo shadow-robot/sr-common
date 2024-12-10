@@ -75,8 +75,8 @@
   <library_images/>
   <library_materials>
     <material id="black_spec" name="black_spec">
-   	  <instance_effect url="#black_spec-fx"/>
-	  </material>
+      <instance_effect url="#black_spec-fx"/>
+    </material>
   </library_materials>
   <library_geometries>
     <geometry id="Finger_Distal_MST__1__002-mesh" name="Finger Distal MST (1).002">
